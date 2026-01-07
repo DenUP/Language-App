@@ -6,6 +6,7 @@ import 'package:language_app/core/widgets/app_password_textform.dart';
 import 'package:language_app/core/widgets/app_textformfield.dart';
 import 'package:language_app/core/widgets/social_button.dart';
 import 'package:language_app/core/utils/app_validate.dart';
+import 'package:language_app/features/pincode/presentation/pincode_page.dart';
 
 class AuthPages extends StatefulWidget {
   const AuthPages({super.key});
@@ -67,7 +68,7 @@ class _AuthPagesState extends State<AuthPages> {
                   isActiveButton: _isActiveButton,
                   keyForm: _keyForm,
                   text: 'Далее',
-                  onClick: Text('data'),
+                  onClick: PincodePage(),
                 ),
                 SizedBox(height: 15),
                 InkWell(
