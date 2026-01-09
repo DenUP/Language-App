@@ -6,7 +6,8 @@ import 'package:language_app/core/widgets/app_password_textform.dart';
 import 'package:language_app/core/widgets/app_textformfield.dart';
 import 'package:language_app/core/widgets/social_button.dart';
 import 'package:language_app/core/utils/app_validate.dart';
-import 'package:language_app/features/pincode/presentation/pincode_page.dart';
+import 'package:language_app/features/auth/presentation/pages/pincode.dart';
+import 'package:pocketbase/pocketbase.dart';
 
 class AuthPages extends StatefulWidget {
   const AuthPages({super.key});
@@ -19,6 +20,7 @@ class _AuthPagesState extends State<AuthPages> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _keyForm = GlobalKey<FormState>();
+  String? validator;
 
   bool get _isActiveButton =>
       _emailController.text.isNotEmpty && _passwordController.text.isNotEmpty;
@@ -53,7 +55,7 @@ class _AuthPagesState extends State<AuthPages> {
                   controller: _emailController,
                   hintText: "example@mail.com",
                   onChanged: (value) => setState(() {}),
-                  validator: emailValidate,
+                  validator: (value) => emailValidate(value) ?? validator,
                 ),
                 SizedBox(height: 14),
                 Text('Пароль', style: AppTextStyle.caption_Regular),
@@ -68,7 +70,12 @@ class _AuthPagesState extends State<AuthPages> {
                   isActiveButton: _isActiveButton,
                   keyForm: _keyForm,
                   text: 'Далее',
-                  onClick: PincodePage(),
+                  onClick: () async {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Pincode()),
+                    );
+                  },
                 ),
                 SizedBox(height: 15),
                 InkWell(

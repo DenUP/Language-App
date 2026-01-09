@@ -21,8 +21,8 @@ String? passwordValidate(String? value) {
     return 'Пустая строка';
   }
 
-  if (value.length < 5) {
-    return 'Пароль должен быть от 5 символов';
+  if (value.length < 8) {
+    return 'Пароль должен быть от 8 символов';
   } else {
     return null;
   }

@@ -7,6 +7,8 @@ class AppTextformfield extends StatelessWidget {
   final String hintText;
   final FormFieldValidator<String>? validator;
   final Function(String) onChanged;
+  final bool? isReady;
+  final Function()? onTap;
 
   const AppTextformfield({
     super.key,
@@ -14,11 +16,15 @@ class AppTextformfield extends StatelessWidget {
     required this.hintText,
     required this.onChanged,
     required this.validator,
+    this.isReady,
+    this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      readOnly: isReady ?? false,
+      onTap: onTap,
       validator: validator,
       onChanged: onChanged,
       style: AppTextStyle.text_Regular.copyWith(color: AppColor.black),

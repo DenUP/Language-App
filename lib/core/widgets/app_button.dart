@@ -8,7 +8,7 @@ class AppButton extends StatelessWidget {
     required bool isActiveButton,
     required GlobalKey<FormState> keyForm,
     required String text,
-    required Widget onClick,
+    required Function() onClick,
   }) : _isActiveButton = isActiveButton,
        _text = text,
        _keyForm = keyForm,
@@ -17,7 +17,7 @@ class AppButton extends StatelessWidget {
   final bool _isActiveButton;
   final GlobalKey<FormState> _keyForm;
   final String _text;
-  final Widget _onClick;
+  final Function() _onClick;
 
   @override
   Widget build(BuildContext context) {
@@ -35,10 +35,7 @@ class AppButton extends StatelessWidget {
         onPressed: _isActiveButton
             ? () {
                 if (_keyForm.currentState!.validate()) {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => _onClick),
-                  );
+                  _onClick();
                 } else {
                   print('not validate');
                 }

@@ -14,7 +14,15 @@ class App extends StatelessWidget {
     return MaterialApp(
       home: AuthPages(),
       debugShowCheckedModeBanner: false,
+      themeMode: ThemeMode.system,
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+        fontFamily: 'SF-Pro',
+        scaffoldBackgroundColor: AppColor.black,
+        colorSchemeSeed: AppColor.accent,
+      ),
       theme: ThemeData(
+        brightness: Brightness.light,
         fontFamily: 'SF-Pro',
         scaffoldBackgroundColor: AppColor.white,
         colorSchemeSeed: AppColor.accent,

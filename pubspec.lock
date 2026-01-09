@@ -192,6 +192,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.7.2"
+  intl:
+    dependency: "direct main"
+    description:
+      name: intl
+      sha256: "3df61194eb431efc39c4ceba583b95633a403f46c9fd341e550ce0bfa50e9aa5"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.20.2"
+  json_annotation:
+    dependency: transitive
+    description:
+      name: json_annotation
+      sha256: "1ce844379ca14835a50d2f019a3099f419082cfdd231cd86a142af94dd5c6bb1"
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.9.0"
   leak_tracker:
     dependency: transitive
     description:
@@ -312,6 +328,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.8"
+  pocketbase:
+    dependency: "direct main"
+    description:
+      name: pocketbase
+      sha256: "20d3ec5c9cb1ed873d6ad1e94b4a543a615c49f9022daeebf5f39cd159e7cc96"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.23.1"
   posix:
     dependency: transitive
     description:
