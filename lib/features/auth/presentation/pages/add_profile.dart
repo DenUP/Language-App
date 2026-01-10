@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:language_app/core/theme/app_color.dart';
-import 'package:language_app/core/theme/app_text_style.dart';
+
 import 'package:language_app/core/widgets/app_button.dart';
 import 'package:language_app/core/widgets/app_textformfield.dart';
 import 'package:language_app/features/auth/presentation/pages/otp_telegram.dart';
+import 'package:ui_kit/app_text_style.dart';
+import 'package:ui_kit/ui_kit.dart';
 
 class AddProfile extends StatefulWidget {
   const AddProfile({super.key});

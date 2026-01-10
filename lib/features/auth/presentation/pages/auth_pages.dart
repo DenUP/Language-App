@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:language_app/core/theme/app_color.dart';
-import 'package:language_app/core/theme/app_text_style.dart';
+
 import 'package:language_app/core/widgets/app_button.dart';
 import 'package:language_app/core/widgets/app_password_textform.dart';
 import 'package:language_app/core/widgets/app_textformfield.dart';
 import 'package:language_app/core/widgets/social_button.dart';
 import 'package:language_app/core/utils/app_validate.dart';
+import 'package:language_app/features/auth/data/auth_repository_impl.dart';
+import 'package:language_app/features/auth/domain/auth_repository.dart';
 import 'package:language_app/features/auth/presentation/pages/pincode.dart';
+import 'package:language_app/getit.dart';
 import 'package:pocketbase/pocketbase.dart';
+import 'package:ui_kit/ui_kit.dart';
 
 class AuthPages extends StatefulWidget {
   const AuthPages({super.key});
@@ -71,10 +74,17 @@ class _AuthPagesState extends State<AuthPages> {
                   keyForm: _keyForm,
                   text: 'Далее',
                   onClick: () async {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Pincode()),
-                    );
+                    print('Жмак 1');
+                    print(getIt.get<PocketBase>().authStore.isValid);
+
+                    // AuthRepositoryImpl(
+                    //   pb: getIt(),
+                    // ).login(_emailController.text, _passwordController.text);
+                    print(getIt.get<PocketBase>().authStore.isValid);
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(builder: (context) => Pincode()),
+                    // );
                   },
                 ),
                 SizedBox(height: 15),

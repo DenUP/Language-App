@@ -1,11 +1,11 @@
-import 'package:flutter/animation.dart';
+import 'package:flutter/material.dart';
 
 abstract class AppColor {
   static const accent = Color(0xFF1A6FEE);
   static const accent_inactive = Color(0xFFC9D4FB);
   static const black = Color(0xFF000000);
   static const white = Color(0xFFFFFFFF);
-  static const error = Color(0xFFFD3535);
+  static const error = Color.fromARGB(255, 54, 8, 8);
   static const success = Color(0xFF00B712);
   static const input_bg = Color(0xFFF5F5F9);
   static const input_stroke = Color(0xFFEBEBEB);

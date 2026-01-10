@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:language_app/core/theme/app_color.dart';
 import 'package:language_app/features/auth/presentation/pages/auth_pages.dart';
+import 'package:language_app/features/main/presentatiton/pages/main_pages.dart';
+import 'package:language_app/getit.dart';
+import 'package:ui_kit/ui_kit.dart';
 
 Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await setUp();
+
+  // final pb = ;
   runApp(App());
 }
 
@@ -12,7 +18,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: AuthPages(),
+      home: MainPages(),
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.system,
       darkTheme: ThemeData(

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:language_app/core/theme/app_color.dart';
-import 'package:language_app/core/theme/app_text_style.dart';
+
 import 'package:language_app/features/auth/presentation/pages/new_password.dart';
+import 'package:ui_kit/app_text_style.dart';
+import 'package:ui_kit/ui_kit.dart';
 
 class OtpTelegram extends StatefulWidget {
   const OtpTelegram({super.key});
@@ -37,28 +38,20 @@ class _OtpTelegramState extends State<OtpTelegram> {
                   margin: EdgeInsets.only(right: 16),
                   decoration: BoxDecoration(
                     color: AppColor.input_bg,
-                    border: BoxBorder.all(
-                      color: AppColor.input_stroke,
-                      width: 1,
-                    ),
+                    border: Border.all(color: AppColor.input_stroke, width: 1),
                   ),
                   child: TextFormField(
                     controller: controllers[index],
-                    keyboardType: TextInputType.number,
-                    inputFormatters: [
-                      LengthLimitingTextInputFormatter(1),
-                      FilteringTextInputFormatter.digitsOnly,
-                    ],
                     onChanged: (value) {
-                      if (value.length == 1) {
+                      if (controllers[index].text.length == 1) {
                         FocusScope.of(context).nextFocus();
                       }
-                      bool isNotEmpty = controllers.every(
+                      final notEmpty = controllers.every(
                         (e) => e.text.isNotEmpty,
                       );
-                      if (isNotEmpty) {
-                        final opt = controllers.map((e) => e.text).toList();
-                        print(opt);
+                      if (notEmpty) {
+                        final res = controllers.map((e) => e.text).toList();
+                        print(res);
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
@@ -68,21 +61,20 @@ class _OtpTelegramState extends State<OtpTelegram> {
                       }
                     },
                     textAlign: TextAlign.center,
-                    style: AppTextStyle.title2_Regular.copyWith(
-                      color: AppColor.black,
-                    ),
+                    keyboardType: TextInputType.phone,
+                    inputFormatters: [
+                      LengthLimitingTextInputFormatter(1),
+                      FilteringTextInputFormatter.digitsOnly,
+                    ],
                     decoration: InputDecoration(border: InputBorder.none),
                   ),
                 );
               }),
             ),
-            SizedBox(height: 16),
+            SizedBox(height: 15),
             Text(
-              textAlign: TextAlign.center,
               'Отправить код повторно можно\nбудет через 55 секунд',
-              style: AppTextStyle.text_Regular.copyWith(
-                color: AppColor.caption,
-              ),
+              textAlign: TextAlign.center,
             ),
           ],
         ),

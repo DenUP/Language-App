@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:language_app/core/theme/app_color.dart';
-import 'package:language_app/core/theme/app_text_style.dart';
+
+import 'package:ui_kit/ui_kit.dart';
 
 class SocialButton extends StatelessWidget {
   const SocialButton({super.key});
